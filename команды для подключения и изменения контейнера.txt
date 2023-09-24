@@ -1,0 +1,8 @@
+docker build -t test_image:latest
+docker run --rm --name test_container –p 5439:5432 -d test_image:latest
+C:\Users\Yana\Desktop\Work\docker\db
+docker exec -it test_container psql -U username -d database
+CREATE TABLE IF NOT EXISTS public.index_mass (  user_id BIGINT,  weight BIGINT,  height BIGINT);
+INSERT INTO public.index_mass (user_id, weight, height) VALUES  (4, 151, 152),  (5, 153, 154),  (6, 155, 156);
+docker exec -it test_container psql -U postgres
+docker run --rm -d --name test_container -p 5432:5432 -v /data:/var/lib/postgresql/data test_image:latest
